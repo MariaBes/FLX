@@ -1,9 +1,4 @@
 @media screen,print {
-    :root{
-        --grey:rgb(245,245,245);
-        --greengrey:rgb(242,242,242);
-        --bluegrey:rgb(236,236,236);
-    }
     .tm-banner-text::first-letter,.tm-section-description::first-letter{
         color: lightskyblue;
         font-size: 30px;
@@ -38,27 +33,21 @@
 @media screen {
 
     .tm-banner{
-        background:var(--grey);
+        background:rgb(245,245,245);
     }
     .tm-content-box{
         overflow: unset;
-        -webkit-box-shadow: 0px 2px 13px 0px rgba(0,0,0,0.75);
-        -moz-box-shadow: 0px 2px 13px 0px rgba(0,0,0,0.75);
         box-shadow: 0px 2px 13px 0px rgba(0,0,0,0.75);
     }
     .blocks>.tm-content-box:nth-child(3){
         box-shadow:none;
         padding:10px;
-        background: var(--bluegrey);
+        background:rgb(236,236,236);
     }
     .blocks .gallery-container{
-        -webkit-box-shadow: 0px 2px 13px 0px rgba(0,0,0,0.75);
-        -moz-box-shadow: 0px 2px 13px 0px rgba(0,0,0,0.75);
         box-shadow: 0px 2px 13px 0px rgba(0,0,0,0.75);
     }
     .tm-main-nav{
-        -webkit-box-shadow: 0px 2px 13px 0px rgba(0,0,0,0.75);
-        -moz-box-shadow: 0px 2px 13px 0px rgba(0,0,0,0.75);
         box-shadow: 0px 2px 13px 0px rgba(0,0,0,0.75);
     }
     .tm-banner-inner{
@@ -98,7 +87,7 @@
     .gallery-container li:nth-child(2),
     .gallery-container li:nth-child(4),
     .gallery-container li:nth-child(6){
-        background: var(--greengrey);
+        background: rgb(242,242,242);
     }
     .box-work p{
         font-style: italic;
@@ -126,12 +115,11 @@
     .submit-btn:hover{
         background: lightskyblue;
         color: #fff;
-        border:2px solid lightskyblue;
-
+        border:2px solid transparent;
     }
 
     .tm-nav-item-link:hover{
-        background: var(--grey);
+        background: rgb(245,245,245);
     }
 
     section:before{
@@ -145,8 +133,6 @@
         border-bottom: 30px solid transparent;
     }
     .blocks >.tm-team-description-container{
-        -webkit-box-shadow: 0px 2px 13px 0px rgba(0,0,0,0.75);
-        -moz-box-shadow: 0px 2px 13px 0px rgba(0,0,0,0.75);
         box-shadow: 0px 2px 13px 0px rgba(0,0,0,0.75);
     }
     .carousel-item .tm-section-title{
