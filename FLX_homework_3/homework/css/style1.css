@@ -1,0 +1,196 @@
+body {
+  font: normal 300 15px/24px Roboto, Ubuntu, Cantarell, Helvetica, sans-serif;
+  background: transparent;
+  overflow-x: hidden;
+  margin: 0; }
+
+a {
+  text-decoration: none; }
+
+header {
+  height: 100vh;
+  background-image: url("./../img/header_background_v1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center -100px; }
+  header section {
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+    header section h1 {
+      color: #ffffff;
+      text-transform: uppercase; }
+    header section a {
+      color: #ffffff;
+      text-transform: uppercase;
+      background-color: #01acac;
+      width: 200px;
+      display: inline-block;
+      height: 42px;
+      line-height: 43px;
+      cursor: pointer;
+      border: none; }
+
+.top-wrapper {
+  display: flex;
+  justify-content: space-between; }
+  .top-wrapper .logo img {
+    width: 200px; }
+  .top-wrapper nav a {
+    padding: 10px 110px;
+    display: inline-block;
+    text-transform: uppercase;
+    color: #ffffff;
+    font-weight: bold; }
+  .top-wrapper nav a:nth-child(1):after, .top-wrapper nav a:nth-child(2):after {
+    margin-left: 110px;
+    margin-top: -10px;
+    width: 1px;
+    height: 40px;
+    content: ' ';
+    position: absolute;
+    background: #607c8a; }
+
+main {
+  padding: 1% 17%;
+  background: #ffffff; }
+  main .toolbar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; }
+    main .toolbar input {
+      background: #ffffff;
+      padding: 10px 20px;
+      border: 1px solid #607d8b;
+      color: #010f16;
+      width: 200px;
+      box-sizing: border-box;
+      font-size: 14px; }
+      main .toolbar input::placeholder {
+        color: #010f16; }
+
+.post-list h1 {
+  text-align: right;
+  text-transform: uppercase;
+  margin-top: 20px;
+  margin-bottom: 0;
+  color: #010f16; }
+
+article {
+  display: flex;
+  background: #efefef;
+  padding: 10px 15px 10px 10px;
+  margin-bottom: 15px; }
+  article img {
+    width: 260px;
+    height: 260px;
+    margin-right: 10px; }
+  article .post-description {
+    color: #e90303;
+    font-size: 13px;
+    border-bottom: 1px solid #607d8b;
+    line-height: 30px; }
+  article h3 {
+    text-transform: uppercase;
+    color: #0097a7;
+    margin-top: 5px;
+    margin-bottom: 5px; }
+  article p {
+    color: #010f16;
+    font-size: 15px;
+    margin-top: 0; }
+  article .btn {
+    color: #ffffff;
+    text-transform: uppercase;
+    background-color: #01acac;
+    width: 200px;
+    display: inline-block;
+    height: 35px;
+    line-height: 32px;
+    cursor: pointer;
+    border: none;
+    border: none;
+    float: right; }
+
+.about {
+  padding: 10px; }
+  .about h1 {
+    text-align: right;
+    text-transform: uppercase;
+    margin-top: 40px;
+    margin-bottom: 5px;
+    color: #010f16; }
+  .about p {
+    color: #010f16;
+    margin-bottom: 20px;
+    margin-top: 0; }
+  .about img {
+    width: 100%; }
+
+.contact-form h1 {
+  text-align: right;
+  text-transform: uppercase;
+  margin-top: 50px;
+  margin-bottom: 5px;
+  color: #010f16; }
+.contact-form h4 {
+  text-align: right;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 30px;
+  color: #010f16; }
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end; }
+  form label:nth-child(1), form label:nth-child(2) {
+    flex: 20%;
+    margin-bottom: 20px;
+    text-align: right;
+    color: #0097a7; }
+    form label:nth-child(1):before, form label:nth-child(2):before {
+      content: '*';
+      float: right;
+      position: relative;
+      color: #0097a7; }
+    form label:nth-child(1) input, form label:nth-child(2) input {
+      background-color: #ffffff;
+      width: 100%;
+      font-size: 16px;
+      height: 45px;
+      padding: 10px;
+      box-sizing: border-box;
+      border: 1px solid #607d8b; }
+  form label:nth-child(2) {
+    margin-left: 2%; }
+  form label:nth-child(3) {
+    flex: 100%;
+    text-align: right;
+    color: #0097a7; }
+    form label:nth-child(3) textarea {
+      background-color: #ffffff;
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid #607d8b; }
+  form button[type="submit"] {
+    color: #ffffff;
+    text-transform: uppercase;
+    background-color: #01acac;
+    width: 200px;
+    display: inline-block;
+    height: 38px;
+    line-height: 38px;
+    cursor: pointer;
+    border: none;
+    margin-top: 15px; }
+
+footer {
+  background: #ffffff; }
+  footer span {
+    display: block;
+    padding-left: 10px;
+    padding-bottom: 15px; }

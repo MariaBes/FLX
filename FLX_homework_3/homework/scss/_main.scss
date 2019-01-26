@@ -1,0 +1,227 @@
+@mixin hero_background($imgPath){
+  background: {
+    image: url($imgPath);
+    repeat: no-repeat;
+    size:cover;
+    position: center -100px;
+  }
+}
+@mixin btn_primary($height,$line-height,$border:false,$width:0, $style:none, $border-color:transparent){
+  color:$btn_text_color;
+  text-transform: uppercase;
+  background-color: $primary_color;
+  width: 200px;
+  display: inline-block;
+  height: $height;
+  line-height: $line-height;
+  cursor: pointer;
+  @if $border==true{
+    border:$width $style $border-color;
+  }@else{
+    border:none;
+  }
+}
+@mixin title_chapter($color,$case,$margin-top,$margin-bottom){
+  text-align: right;
+  text-transform: $case;
+  margin-top:$margin-top;
+  margin-bottom: $margin-bottom;
+  color:$color;
+}
+@mixin input_label($color,$star:true){
+  text-align: right;
+  color:$color;
+  @if $star==true {
+    &:before {
+      content: '*';
+      float: right;
+      position: relative;
+      color: $color;
+    }
+  }
+}
+@mixin solid_border($color,$width:1px,$style:solid){
+  border:$width $style $color;
+}
+
+body {
+  font: $page_font;
+  background: transparent;
+  overflow-x: hidden;
+  margin: 0;
+}
+a{
+  text-decoration: none;
+}
+header{
+  height: 100vh;
+  @include hero_background($background_img);
+  section{
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    h1{
+      color:$hero_text_color;
+      text-transform: uppercase;
+    }
+    a{
+      @include btn_primary($hero_btn_height,$hero_btn_line_height);
+    }
+  }
+}
+.top-wrapper{
+  display: flex;
+  justify-content: space-between;
+  .logo img{
+    width: 200px;
+  }
+  nav {
+    a{
+      padding: 10px 110px;
+      display: inline-block;
+      text-transform: uppercase;
+      color:$hero_text_color;
+      font-weight: bold;
+    }
+    a:nth-child(1):after,a:nth-child(2):after{
+      margin-left: 110px;
+      margin-top: -10px;
+      width: 1px;
+      height: 40px;
+      content: ' ';
+      position: absolute;
+      background: $decor_menu_line;
+    }
+
+  }
+}
+main {
+  padding: 1% 17%;
+  background: $background_main;
+  .toolbar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    input {
+      background:$input_bg_color;
+      padding: 10px 20px;
+      border: 1px solid $decor_border;
+      color: $item_text_color;
+      width: 200px;
+      box-sizing: border-box;
+      font-size: 14px;
+      &::placeholder{
+        color:$placeholder_color;
+      }
+    }
+  }
+}
+.post-list h1{
+  @include title_chapter($chapter_title_color,uppercase,20px,0);
+}
+article{
+  display: flex;
+  background: $background_item;
+  padding: 10px 15px 10px 10px;
+  margin-bottom: 15px;
+  img{
+    width: 260px;
+    height: 260px;
+    margin-right: 10px;
+  }
+  .post-description{
+    color:$date_text_color;
+    font-size: 13px;
+    border-bottom: 1px solid $decor_border;
+    line-height: 30px;
+  }
+  h3{
+    text-transform: uppercase;
+    color:$item_title_color;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  p{
+    color:$item_text_color;
+    font-size: 15px;
+    margin-top: 0;
+  }
+  .btn{
+    @include btn_primary($item_btn_height,$item_btn_line_height);
+    border: none;
+    float: right;
+  }
+}
+.about{
+  padding: 10px;
+  h1{
+    @include title_chapter($chapter_title_color,uppercase,40px,5px);
+  }
+  p{
+    color: $paragraph_color;
+    margin-bottom: 20px;
+    margin-top: 0;
+  }
+  img{
+    width: 100%;
+  }
+}
+.contact-form{
+  h1{
+    @include title_chapter($chapter_title_color,uppercase,50px,5px);
+  }
+  h4{
+    @include title_chapter($chapter_title_color,uppercase,0,30px);
+  }
+}
+form{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  label:nth-child(1),label:nth-child(2){
+    flex:20%;
+    margin-bottom: 20px;
+    @include input_label($form_label_color);
+    input{
+      background-color:$input_bg_color;
+      width: 100%;
+      font-size: 16px;
+      height: 45px;
+      padding: 10px;
+      box-sizing: border-box;
+      @include solid_border($decor_border);
+    }
+  }
+  label:nth-child(2){
+    margin-left: 2%;
+  }
+  label:nth-child(3){
+    flex:100%;
+    @include input_label($form_label_color,false);
+    textarea{
+      background-color:$input_bg_color;
+      width: 100%;
+      box-sizing: border-box;
+      @include solid_border($decor_border);
+    }
+  }
+  button[type="submit"]{
+    @include btn_primary($form_btn_height,$form_btn_line_height);
+    margin-top: 15px;
+  }
+}
+footer{
+  background:$background_main;
+  span{
+    display: block;
+    padding-left: 10px;
+    padding-bottom: 15px;
+  }
+}
+
+
+
+
