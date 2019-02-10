@@ -17,7 +17,6 @@ if(!login){
     pass=prompt('Admin your password, please',"");
     isAdmin=true;
 }
-
 if(!pass){
     alert("Canceled")
 }else if(pass&&pass.length!==0&&isUser&&pass==="UserPass"){
