@@ -24,7 +24,7 @@ function getMainPage(){
     let listUl=addElement('ul');
     listBox.appendChild(listUl);
 
-    todoItems.forEach((item)=>{
+    todoItems.forEach((item) => {
 
 
 
@@ -58,13 +58,13 @@ function getMainPage(){
         let id= +this.parentNode.id;
         console.log(id);
 
-        let el = todoItems.find((item)=> item.id===id);
+        let el = todoItems.find((item) => item.id===id);
 
        if(!el.isDone){
            el.isDone=true;
-           let arrWithoutTargetEl=todoItems.filter((item)=> item.id!==id);
+           let arrWithoutTargetEl=todoItems.filter((item) => item.id!==id);
            arrWithoutTargetEl.push(el);
-           localStorage.setItem("todoItems",JSON.stringify(arrWithoutTargetEl));
+           localStorage.setItem('todoItems',JSON.stringify(arrWithoutTargetEl));
            listBox.innerHTML='';
            getMainPage();
        }
@@ -73,8 +73,8 @@ function getMainPage(){
     function removeEl(e){
         e.stopPropagation();
         let id= +this.parentNode.id;
-        let arrWithoutTargetEl=todoItems.filter((item)=> item.id!==id);
-        localStorage.setItem("todoItems",JSON.stringify(arrWithoutTargetEl));
+        let arrWithoutTargetEl=todoItems.filter((item) => item.id!==id);
+        localStorage.setItem('todoItems',JSON.stringify(arrWithoutTargetEl));
         listBox.innerHTML='';
         getMainPage();
     }
@@ -107,7 +107,9 @@ mainContainer.appendChild(decorLine);
 
 
 function addItemList(){
-    if(listBox) listBox.innerHTML='';
+    if(listBox){
+        listBox.innerHTML=''
+    }
     let inputBox=addElement('div');
     mainContainer.appendChild(inputBox);
 
@@ -124,14 +126,14 @@ function addItemList(){
     let submit = addElement('button','Save changes','btnAdd');
     submit.setAttribute('type','submit');
     submit.addEventListener('click',newItem);
-    form.addEventListener('submit',newItem)
+    form.addEventListener('submit',newItem);
     submit.disabled=true;
     form.appendChild(submit);
 
 
     let cancel = addElement('button','Cancel','linkCancel');
     cancel.setAttribute('type','button');
-    cancel.addEventListener('click',cancelAdding)
+    cancel.addEventListener('click',cancelAdding);
     form.appendChild(cancel);
 
     function cancelAdding(){
@@ -147,21 +149,23 @@ function addItemList(){
     function newItem(e){
         e.preventDefault();
         let todoItems= JSON.parse(localStorage.getItem('todoItems'));
-        function generateId(min=0, max=9999) {
+        let minRandom=0;
+        let maxRandom=9999;
+        function generateId(min=minRandom, max=maxRandom) {
             let rand = min + Math.random() * (max + 1 - min);
             rand = Math.floor(rand);
-            return todoItems.some((item)=>item.id===rand)?generateId(): rand;
+            return todoItems.some((item) => item.id===rand)?generateId(): rand;
         }
 
         let itemObj={
             id:generateId(),
             description:input.value,
-            isDone:false,
+            isDone:false
         };
-
-        let firstCheckedEl=todoItems.findIndex((item)=>item.isDone===true);
-        todoItems=[...todoItems.slice(0,firstCheckedEl),itemObj,...todoItems.slice(firstCheckedEl)];
-        localStorage.setItem("todoItems",JSON.stringify(todoItems));
+        let startPoint=0;
+        let firstCheckedEl=todoItems.findIndex((item) => item.isDone===true);
+        todoItems=[...todoItems.slice(startPoint,firstCheckedEl),itemObj,...todoItems.slice(firstCheckedEl)];
+        localStorage.setItem('todoItems',JSON.stringify(todoItems));
         inputBox.innerHTML='';
         location.hash='#/';
 
@@ -180,7 +184,9 @@ function modifyItemList(){
  let allList=JSON.parse(localStorage.getItem('todoItems'));
  console.log('allList',allList);
 let elIndex;
- let editedEl=allList.find((item,index)=>{elIndex=index; return item.id===id});
+ let editedEl=allList.find((item,index) => {
+     elIndex=index; return item.id===id
+ });
     console.log('editedEl',editedEl);
     console.log('elIndex',elIndex);
 
@@ -222,8 +228,9 @@ let elIndex;
     function editedItem(e){
         e.preventDefault();
         editedEl.description=input.value;
-        let editedArray=[...allList.slice(0,elIndex),editedEl,...allList.slice(elIndex+1)];
-        localStorage.setItem("todoItems",JSON.stringify(editedArray));
+        let startPoint=0;
+        let editedArray=[...allList.slice(startPoint,elIndex),editedEl,...allList.slice(elIndex+1)];
+        localStorage.setItem('todoItems',JSON.stringify(editedArray));
         inputBox.innerHTML='';
         location.hash='#/';
     }
